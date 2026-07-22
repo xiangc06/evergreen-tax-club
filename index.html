@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Evergreen Tax Club — Specialized in Tax Saving</title>
+<meta name="description" content="Evergreen Tax Club is a nonprofit 501(c)(3) association of tax professionals providing tax help, return reviews, and free assistance for low-income families.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#1B4332;--green:#2D6A4F;--green-light:#40916C;--bg:#FAFAF7;
+    --panel:#EEF2ED;--ink:#1A1A1A;--muted:#5B665F;--gold:#D4A537;--line:#D8DED6;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--bg);line-height:1.6;-webkit-font-smoothing:antialiased}
+  h1,h2,h3,.display{font-family:'Space Grotesk',sans-serif;letter-spacing:-.02em;line-height:1.1}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+  header{position:sticky;top:0;z-index:50;background:rgba(250,250,247,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:76px}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{width:38px;height:38px;flex:none}
+  .brand-name{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.05rem;color:var(--forest);line-height:1.15}
+  .brand-name span{display:block;font-weight:400;font-size:.72rem;color:var(--muted);letter-spacing:.04em;text-transform:uppercase}
+  nav ul{display:flex;align-items:center;gap:30px;list-style:none}
+  nav a{font-weight:500;font-size:.95rem;color:var(--ink);transition:color .15s}
+  nav a:hover{color:var(--green)}
+  .donate{background:var(--gold);color:#3a2e00;padding:9px 20px;border-radius:6px;font-weight:600;font-size:.9rem}
+  .donate:hover{background:#c2952e;color:#3a2e00}
+  .menu-btn{display:none;background:none;border:none;font-size:1.5rem;cursor:pointer;color:var(--forest)}
+  .hero{position:relative;padding:96px 0 88px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+  .eyebrow{font-size:.8rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);margin-bottom:20px}
+  .hero h1{font-size:clamp(2.6rem,6vw,4.2rem);font-weight:700;color:var(--forest)}
+  .hero h1 em{font-style:normal;color:var(--gold)}
+  .hero p.lead{margin-top:22px;font-size:1.15rem;color:var(--muted);max-width:46ch}
+  .hero-cta{margin-top:34px;display:flex;gap:14px;flex-wrap:wrap}
+  .btn{display:inline-block;padding:13px 26px;border-radius:7px;font-weight:600;font-size:.98rem;transition:transform .12s,background .15s}
+  .btn:hover{transform:translateY(-1px)}
+  .btn-primary{background:var(--forest);color:#fff}
+  .btn-primary:hover{background:var(--green)}
+  .btn-ghost{border:1px solid var(--line);color:var(--forest)}
+  .btn-ghost:hover{border-color:var(--green)}
+  .ph{position:relative;border-radius:12px;background:linear-gradient(135deg,var(--green) 0%,var(--forest) 100%);overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center}
+  .ph::after{content:attr(data-label);position:absolute;bottom:12px;left:0;right:0;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);font-weight:500}
+  .ph-icon{width:64px;height:64px;opacity:.85}
+  .hero-ph{aspect-ratio:4/5;box-shadow:0 24px 60px -24px rgba(27,67,50,.5)}
+  .stats{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .stats-grid{display:grid;grid-template-columns:repeat(3,1fr)}
+  .stat{padding:34px 24px;text-align:center;border-right:1px solid var(--line)}
+  .stat:last-child{border-right:none}
+  .stat .num{font-family:'Space Grotesk',sans-serif;font-size:2rem;font-weight:700;color:var(--forest)}
+  .stat .lbl{font-size:.9rem;color:var(--muted);margin-top:4px}
+  section.block{padding:88px 0}
+  .sec-head{max-width:60ch;margin-bottom:48px}
+  .sec-head .eyebrow{margin-bottom:14px}
+  .sec-head h2{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:700;color:var(--forest)}
+  .sec-head p{margin-top:16px;color:var(--muted);font-size:1.08rem}
+  .about-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:start}
+  .about-ph{aspect-ratio:3/4;position:sticky;top:100px}
+  .about-body p{margin-bottom:18px;color:#33403a}
+  .about-body strong{color:var(--ink)}
+  .services{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .svc{background:var(--bg);padding:32px 30px}
+  .svc .n{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:600;color:var(--green-light);letter-spacing:.05em}
+  .svc h3{font-size:1.2rem;font-weight:600;color:var(--forest);margin:10px 0 8px}
+  .svc p{font-size:.97rem;color:var(--muted)}
+  .band{background:var(--forest);color:#fff;border-radius:16px;padding:56px 52px;display:grid;grid-template-columns:1.2fr .8fr;gap:48px;align-items:center}
+  .band h2{color:#fff;font-size:2rem;font-weight:700}
+  .band p{color:rgba(255,255,255,.8);margin-top:16px}
+  .band .highlight{color:#fff;font-weight:500;margin-top:14px;border-left:3px solid var(--gold);padding-left:16px}
+  .band-ph{aspect-ratio:1/1;background:linear-gradient(135deg,var(--green-light),var(--green))}
+  .clubinfo{display:grid;grid-template-columns:.7fr 1.3fr;gap:40px;padding:44px;border:1px solid var(--line);border-radius:12px;background:#fff}
+  .clubinfo h3{font-size:1.5rem;color:var(--forest);font-weight:700}
+  .clubinfo .tag{color:var(--muted);font-style:italic;margin-top:6px;font-size:.95rem}
+  .clubinfo dl{display:grid;grid-template-columns:auto 1fr;gap:10px 24px;font-size:.97rem;border-left:1px solid var(--line);padding-left:36px}
+  .clubinfo dt{color:var(--muted);font-weight:500}
+  .clubinfo dd{color:var(--ink)}
+  footer{background:var(--forest);color:rgba(255,255,255,.75);margin-top:20px;padding:56px 0 34px}
+  .foot-grid{display:flex;justify-content:space-between;flex-wrap:wrap;gap:32px}
+  footer .brand-name{color:#fff}
+  footer .brand-name span{color:rgba(255,255,255,.6)}
+  .foot-links{display:flex;gap:26px;flex-wrap:wrap}
+  footer a:hover{color:#fff}
+  .foot-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15);font-size:.82rem;color:rgba(255,255,255,.55);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+  @media(max-width:860px){
+    .hero-grid,.about-grid,.band,.clubinfo{grid-template-columns:1fr}
+    .services{grid-template-columns:1fr}
+    .stats-grid{grid-template-columns:1fr}
+    .stat{border-right:none;border-bottom:1px solid var(--line)}
+    .about-ph{position:static}
+    nav ul{display:none}
+    .menu-btn{display:block}
+    .band{padding:40px 30px}
+    .clubinfo dl{border-left:none;padding-left:0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="index.html">
+      <svg class="logo" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2C11 2 4 9 4 18v14a2 2 0 002 2h28a2 2 0 002-2V18C36 9 29 2 20 2z" fill="#1B4332"/>
+        <path d="M20 8l-7 9h4l-5 7h5l-4 6h14l-4-6h5l-5-7h4l-7-9z" fill="#40916C"/>
+        <rect x="18.7" y="27" width="2.6" height="6" fill="#2D6A4F"/>
+      </svg>
+      <span class="brand-name">Evergreen Tax Club<span>Financial Training</span></span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="donate" href="#donate">Donate</a></li>
+      </ul>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Nonprofit 501(c)(3) · Bellevue, WA</div>
+      <h1>Specialized in <em>Tax Saving</em></h1>
+      <p class="lead">A member association of CPAs and Enrolled Agents helping individuals and families resolve tax issues, review returns, and keep more of what they earn.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="contact.html">Become a member</a>
+        <a class="btn btn-ghost" href="#services">What we do</a>
+      </div>
+    </div>
+    <div class="ph hero-ph" data-label="Photo: tax advisor with client">
+      <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><path d="M9 12h6M9 16h6M9 8h2M7 3h7l5 5v11a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z"/></svg>
+    </div>
+  </div>
+</section>
+<div class="stats">
+  <div class="wrap stats-grid">
+    <div class="stat"><div class="num">2021</div><div class="lbl">Organized as a nonprofit</div></div>
+    <div class="stat"><div class="num">CPA · EA</div><div class="lbl">Credentialed tax professionals</div></div>
+    <div class="stat"><div class="num">$0</div><div class="lbl">Return reviews for members</div></div>
+  </div>
+</div>
+<section class="block" id="about">
+  <div class="wrap about-grid">
+    <div class="ph about-ph" data-label="Photo: club leadership">
+      <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+    </div>
+    <div class="about-body">
+      <div class="eyebrow">About the club</div>
+      <h2 style="font-family:'Space Grotesk';font-size:2.3rem;font-weight:700;color:var(--forest);margin-bottom:22px">Organized to help members navigate their taxes</h2>
+      <p><strong>Evergreen Tax Club, organized in 2021, is a nonprofit 501(c)(3) association</strong> formed exclusively for charitable and educational purposes: assisting members in identifying and resolving tax compliance, reviewing tax returns, tax planning and audit issues, and providing free tax help for low-income families in their preferred languages.</p>
+      <p>The club consists of individual tax professionals — CPAs and Enrolled Agents employed by corporations and other businesses. The principal function of our organization is providing educational and networking events for our members, connecting them with tax consultants and support from experienced tax professionals.</p>
+      <a class="btn btn-ghost" href="about.html" style="margin-top:8px">Read more about us</a>
+    </div>
+  </div>
+</section>
+<section class="block" id="services" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">What we help with</div>
+      <h2>Support across the issues that matter most</h2>
+    </div>
+    <div class="services">
+      <div class="svc"><div class="n">01</div><h3>Tax compliance</h3><p>Identifying and resolving compliance issues before they become costly problems.</p></div>
+      <div class="svc"><div class="n">02</div><h3>Return reviews</h3><p>A second set of expert eyes on your filed returns to catch mistakes and missed savings.</p></div>
+      <div class="svc"><div class="n">03</div><h3>Planning & audits</h3><p>Forward-looking tax planning and guidance through audit issues when they arise.</p></div>
+      <div class="svc"><div class="n">04</div><h3>Free family help</h3><p>Free tax assistance for low-income families, offered in their preferred languages.</p></div>
+    </div>
+  </div>
+</section>
+<section class="block" style="padding-top:0">
+  <div class="wrap">
+    <div class="band">
+      <div>
+        <div class="eyebrow" style="color:var(--gold)">Member benefit</div>
+        <h2>Get more with a family tax review</h2>
+        <p>Was your refund as high as it could have been? Was your return rushed, or prepared without professional support? If so, there may be mistakes — or missed savings — in your past returns.</p>
+        <p class="highlight">Members can have prior returns reviewed at no cost. If we don't find anything to recover, there's nothing to pay.</p>
+        <a class="btn" style="background:var(--gold);color:#3a2e00;margin-top:26px" href="contact.html">Request a review</a>
+      </div>
+      <div class="ph band-ph" data-label="Photo: family consultation">
+        <svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.3"><path d="M3 21v-2a4 4 0 014-4h4a4 4 0 014 4v2"/><circle cx="9" cy="7" r="4"/><path d="M16 3.1a4 4 0 010 7.8M21 21v-2a4 4 0 00-3-3.9"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="block" id="donate" style="padding-top:0">
+  <div class="wrap">
+    <div class="clubinfo">
+      <div>
+        <h3>Evergreen Tax Club</h3>
+        <div class="tag">Club information</div>
+      </div>
+      <dl>
+        <dt>2021 Presidents</dt><dd>HongQiao Li · Weiping Tang · Qi Chen</dd>
+        <dt>Email</dt><dd><a href="mailto:EvergreenTaxClub@gmail.com" style="color:var(--green)">EvergreenTaxClub@gmail.com</a></dd>
+        <dt>EIN</dt><dd>87-1059132</dd>
+        <dt>Status</dt><dd>Nonprofit 501(c)(3), organized 2021</dd>
+      </dl>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="brand">
+        <span class="brand-name">Evergreen Tax Club<span>Financial Training</span></span>
+      </div>
+      <div class="foot-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="mailto:EvergreenTaxClub@gmail.com">Email us</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2025 Evergreen Tax Club · EIN 87-1059132 · Bellevue, WA</span>
+      <span>A nonprofit 501(c)(3) association</span>
+    </div>
+  </div>
+</footer>
+<script>
+  document.querySelector('.menu-btn').addEventListener('click',function(){
+    var ul=document.querySelector('nav ul');
+    var open=ul.style.display==='flex';
+    ul.style.display=open?'none':'flex';
+    ul.style.flexDirection='column';ul.style.position='absolute';ul.style.top='76px';
+    ul.style.right='28px';ul.style.background='#fff';ul.style.padding='18px 24px';
+    ul.style.borderRadius='10px';ul.style.boxShadow='0 12px 30px rgba(0,0,0,.12)';ul.style.gap='16px';
+  });
+</script>
+</body>
+</html>
