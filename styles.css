@@ -13,7 +13,7 @@
   --bar-soft: #EFF4EC;   /* lighter stripe / panel fill */
   --ink:      #12241A;   /* headings, dark bands */
   --ink-2:    #35473C;   /* body copy */
-  --slate:    #64756A;   /* secondary / labels */
+  --slate:    #59685F;   /* secondary / labels — AA on paper, bar and bar-soft */
   --rule:     #C6D3C7;   /* structural rules */
   --rule-2:   #DFE7DF;   /* hairline rules */
   --stamp:    #9E3B2E;   /* the single accent — use sparingly */
@@ -90,7 +90,7 @@ img{max-width:100%;display:block}
 }
 .head-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
 
-.brand{display:flex;align-items:center;gap:12px;flex:none}
+.brand{display:flex;align-items:center;gap:12px;flex:none;min-height:44px}
 .brand-name{font-family:var(--display);font-size:1.16rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
 
 /* ---- The shield ------------------------------------------
@@ -135,7 +135,8 @@ img{max-width:100%;display:block}
   background:none;
   border:1px solid var(--rule);
   border-radius:3px;
-  padding:8px 12px;
+  padding:8px 14px;
+  min-height:44px;
   font-family:var(--mono);
   font-size:.72rem;
   letter-spacing:.08em;
@@ -228,7 +229,7 @@ img{max-width:100%;display:block}
 .lang-chip{
   font-family:var(--mono),var(--intl);
   font-size:.82rem;letter-spacing:.03em;line-height:1.4;
-  padding:7px 13px;border:1px solid rgba(251,250,246,.3);border-radius:2px;
+  padding:11px 16px;min-height:44px;border:1px solid rgba(251,250,246,.3);border-radius:2px;
   background:transparent;cursor:pointer;
   color:rgba(251,250,246,.8);
   transition:color .25s,border-color .25s,background .25s;
@@ -403,7 +404,7 @@ img{max-width:100%;display:block}
 .site-foot .brand-logo{color:var(--paper);--logo-bg:var(--ink)}
 .foot-top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;align-items:flex-start}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
-.foot-links a{font-size:.95rem;transition:color .15s}
+.foot-links a{font-size:.95rem;transition:color .15s;display:inline-flex;align-items:center;min-height:44px}
 .foot-links a:hover{color:var(--paper)}
 .foot-bottom{
   margin-top:44px;padding-top:22px;
