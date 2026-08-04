@@ -1,7 +1,7 @@
 # Evergreen Tax Club — Website
 
 The public website for Evergreen Tax Club, a nonprofit 501(c)(3) association of
-CPAs and Enrolled Agents based in Bellevue, WA (EIN 87-1059132).
+CPAs and Enrolled Agents based in Bellevue, WA.
 
 **Live site:** https://xiangc06.github.io/evergreen-tax-club/
 
@@ -35,7 +35,7 @@ deliberately no tree.
 - **Public Sans** — body face. The typeface the US government commissioned for
   federal civic documents, which is fitting for an organization whose work is
   IRS paperwork.
-- **IBM Plex Mono** — figures, labels, the EIN, and line numbers.
+- **IBM Plex Mono** — figures, labels, and line numbers.
 - **One accent only** — the oxide red `#9E3B2E`. Use it sparingly; its power
   comes from scarcity. Adding a second accent colour will flatten the design.
 
@@ -109,29 +109,54 @@ code. Screen readers use it to switch pronunciation, so it must be right.
 > Zilla Slab and IBM Plex Mono carry no CJK, Devanagari, or Thai glyphs, so any
 > new script needs a face in that stack that covers it.
 
-## Still to supply — the photographs
+## Images
 
-Every image is still a labeled placeholder. Each one states the exact size to
-supply, so whoever sources the photography knows what to send:
+The three images are placeholder illustrations drawn in the site's own visual
+language — flat vector, greenbar palette, no faces. They are deliberately
+illustrations rather than stock photography: nothing on the page pretends to be
+a photograph of this club that does not exist.
 
-| Page | Placeholder | Size |
-|------|-------------|------|
-| `index.html` | Member reviewing a return with a client | 1200 × 1200 px, square |
-| `index.html` | Members at a networking or education evening | 900 × 1200 px, portrait |
-| `about.html` | Members at a club education or networking evening | 900 × 1200 px, portrait |
+| File | Used on | Shape |
+|------|---------|-------|
+| `images/placeholder-review.svg` | `index.html` — member benefit | Square |
+| `images/placeholder-gathering.svg` | `index.html` — about preview | Portrait 3:4 |
+| `images/placeholder-education.svg` | `about.html` — the work | Portrait 3:4 |
 
-To drop a real photo in, replace the whole placeholder `div`:
+Being SVG, they are a few kilobytes each, stay sharp on any display, and load
+with no external request.
+
+### Swapping in real photographs
+
+Change the `src` and rewrite the `alt`. Nothing else moves — `.ph-img` handles
+the framing and `.ph-square` / `.ph-portrait` hold the shape.
 
 ```html
 <!-- before -->
-<div class="ph ph-square" data-label="Photo — …" data-size="1200 × 1200 px · square"></div>
+<img class="ph-img ph-square" src="images/placeholder-review.svg"
+     alt="Illustration of a tax return under review with one line flagged">
 
 <!-- after -->
-<img src="images/review-session.jpg" alt="A club member reviewing a tax return with a client">
+<img class="ph-img ph-square" src="images/review-session.jpg"
+     alt="A club member reviewing a printed tax return with a client">
 ```
+
+Supply photos at roughly **1200 × 1200 px** for the square slot and
+**900 × 1200 px** for the portrait slots. They are cropped with `object-fit:
+cover`, so keep the subject near the centre.
 
 Always write real `alt` text describing what the photo shows. Screen readers and
 search engines both depend on it.
+
+## What is deliberately not on this site
+
+The club's **EIN has been removed** from every page at the club's request, to
+reduce exposure to business identity fraud.
+
+Do not add it back without asking first. If a donor needs it for a deduction,
+send it to them directly.
+
+The site also carries no street address, no phone numbers, and no individual
+email addresses — only the club's shared inbox. Keep it that way.
 
 ## How it's hosted
 

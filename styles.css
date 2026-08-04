@@ -350,6 +350,18 @@ img{max-width:100%;display:block}
 .ph-square{aspect-ratio:1/1}
 .ph-wide{aspect-ratio:16/9}
 
+/* Placeholder illustrations, and real photographs once supplied.
+   Swapping one for the other is only a change of src and alt —
+   the sizing and framing stay identical. */
+.ph-img{
+  width:100%;
+  display:block;
+  object-fit:cover;
+  border:1px solid var(--rule);
+  border-radius:3px;
+  background:var(--bar-soft);
+}
+
 /* ============================================================
    Contact
    ============================================================ */

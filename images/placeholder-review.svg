@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" role="img" aria-label="Illustration of a tax return being reviewed">
+  <rect width="1200" height="1200" fill="#EFF4EC"/>
+
+  <!-- greenbar rules -->
+  <g fill="#E3EDE3">
+    <rect x="0" y="120" width="1200" height="60"/>
+    <rect x="0" y="240" width="1200" height="60"/>
+    <rect x="0" y="360" width="1200" height="60"/>
+    <rect x="0" y="480" width="1200" height="60"/>
+    <rect x="0" y="600" width="1200" height="60"/>
+    <rect x="0" y="720" width="1200" height="60"/>
+    <rect x="0" y="840" width="1200" height="60"/>
+    <rect x="0" y="960" width="1200" height="60"/>
+    <rect x="0" y="1080" width="1200" height="60"/>
+  </g>
+
+  <!-- back sheet -->
+  <g transform="rotate(-7 600 620)">
+    <rect x="330" y="250" width="500" height="660" fill="#F2F5F0" stroke="#C6D3C7" stroke-width="3"/>
+  </g>
+
+  <!-- front sheet -->
+  <g transform="rotate(3 600 620)">
+    <rect x="300" y="230" width="520" height="690" fill="#FBFAF6" stroke="#C6D3C7" stroke-width="3"/>
+
+    <!-- header block -->
+    <rect x="348" y="288" width="220" height="22" fill="#12241A"/>
+    <rect x="348" y="330" width="140" height="14" fill="#64756A"/>
+
+    <!-- rule under header -->
+    <rect x="348" y="374" width="424" height="3" fill="#12241A"/>
+
+    <!-- form rows -->
+    <g fill="#C6D3C7">
+      <rect x="348" y="416" width="330" height="12"/>
+      <rect x="348" y="466" width="380" height="12"/>
+      <rect x="348" y="516" width="290" height="12"/>
+      <rect x="348" y="616" width="360" height="12"/>
+      <rect x="348" y="666" width="250" height="12"/>
+      <rect x="348" y="766" width="330" height="12"/>
+      <rect x="348" y="816" width="200" height="12"/>
+    </g>
+
+    <!-- the flagged line -->
+    <rect x="330" y="552" width="460" height="44" fill="#E3EDE3"/>
+    <rect x="330" y="552" width="6" height="44" fill="#9E3B2E"/>
+    <rect x="348" y="568" width="300" height="12" fill="#35473C"/>
+
+    <!-- figures column -->
+    <g fill="#64756A">
+      <rect x="700" y="416" width="72" height="12"/>
+      <rect x="700" y="466" width="72" height="12"/>
+      <rect x="700" y="516" width="72" height="12"/>
+      <rect x="700" y="616" width="72" height="12"/>
+      <rect x="700" y="666" width="72" height="12"/>
+      <rect x="700" y="766" width="72" height="12"/>
+    </g>
+    <rect x="700" y="568" width="72" height="12" fill="#9E3B2E"/>
+
+    <!-- total rule -->
+    <rect x="348" y="866" width="424" height="3" fill="#12241A"/>
+  </g>
+
+  <!-- magnifier over the flagged line -->
+  <g transform="translate(742 606)">
+    <circle r="132" fill="none" stroke="#12241A" stroke-width="16"/>
+    <circle r="132" fill="#FBFAF6" opacity=".22"/>
+    <rect x="86" y="86" width="150" height="26" rx="13" fill="#12241A" transform="rotate(45 86 86)"/>
+  </g>
+</svg>
