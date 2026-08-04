@@ -90,19 +90,23 @@ img{max-width:100%;display:block}
 }
 .head-inner{display:flex;align-items:center;justify-content:space-between;height:74px;gap:24px}
 
-.brand{display:flex;align-items:baseline;gap:11px;flex:none}
-.brand-mark{
-  font-family:var(--mono);
-  font-size:.7rem;
-  font-weight:600;
-  letter-spacing:.08em;
-  color:var(--paper);
-  background:var(--ink);
-  padding:5px 7px;
-  border-radius:2px;
-  align-self:center;
-}
+.brand{display:flex;align-items:center;gap:12px;flex:none}
 .brand-name{font-family:var(--display);font-size:1.16rem;font-weight:600;color:var(--ink);letter-spacing:-.01em}
+
+/* ---- The shield ------------------------------------------
+   Drawn in currentColor, so it takes the colour of whatever it
+   sits in. The curl inside the wave is carved out in the colour
+   of the surrounding background, which --logo-bg supplies —
+   that is what lets one mark work on paper and on ink.
+   ---------------------------------------------------------- */
+.brand-logo{
+  height:38px;
+  width:auto;
+  flex:none;
+  color:var(--ink);
+  --logo-bg:var(--paper);
+}
+.logo-carve{stroke:var(--logo-bg,var(--paper))}
 
 .site-nav ul{display:flex;align-items:center;gap:8px;list-style:none}
 .site-nav a{
@@ -396,7 +400,7 @@ img{max-width:100%;display:block}
    ============================================================ */
 .site-foot{background:var(--ink);color:rgba(251,250,246,.7);padding:60px 0 34px;margin-top:0}
 .site-foot .brand-name{color:var(--paper)}
-.site-foot .brand-mark{background:var(--paper);color:var(--ink)}
+.site-foot .brand-logo{color:var(--paper);--logo-bg:var(--ink)}
 .foot-top{display:flex;justify-content:space-between;gap:36px;flex-wrap:wrap;align-items:flex-start}
 .foot-links{display:flex;gap:24px;flex-wrap:wrap}
 .foot-links a{font-size:.95rem;transition:color .15s}

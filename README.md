@@ -109,6 +109,38 @@ code. Screen readers use it to switch pronunciation, so it must be right.
 > Zilla Slab and IBM Plex Mono carry no CJK, Devanagari, or Thai glyphs, so any
 > new script needs a face in that stack that covers it.
 
+## The logo
+
+`images/logo-shield.svg` is a vector rebuild of the club's original shield
+mark — the tree over furrowed fields above a curling wave.
+
+The original was recovered from the Internet Archive's capture of the old
+`evergreentaxclub.org` (the site itself is gone), as a 634 × 148 PNG. This is a
+redraw from that reference, not a trace: proportions and detail are close but
+not identical, and it can be refined at any time. The source PNG is worth
+keeping if a more exact match is ever wanted.
+
+The mark is **inlined** into each page rather than loaded with `<img>`, which
+is what allows two things:
+
+- **`currentColor`** — the shield takes the colour of whatever it sits in. Dark
+  ink in the header, paper white in the footer, from the same markup.
+- **`--logo-bg`** — the curl inside the wave is carved out in the colour of the
+  surrounding background. `.brand-logo` sets it to `--paper`; `.site-foot
+  .brand-logo` overrides it to `--ink`. Without this the curl would disappear
+  on the dark footer.
+
+An `<img src="logo-shield.svg">` would break both — an SVG loaded that way
+cannot see the page's CSS.
+
+Each inlined copy uses a unique `clipPath` id (`etc-sh-1` … `etc-sh-6`), since
+duplicate ids on one page are invalid and can cause the clip to be applied from
+the wrong element.
+
+`images/favicon.svg` is the same artwork with the colours hard-coded, because a
+favicon is loaded outside the page and inherits nothing from it. **If you change
+the logo, change both files.**
+
 ## Images
 
 The three images are placeholder illustrations drawn in the site's own visual
