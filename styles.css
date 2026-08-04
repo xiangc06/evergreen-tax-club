@@ -231,7 +231,18 @@ img{max-width:100%;display:block}
 }
 .lang-chip:hover{color:var(--paper);border-color:rgba(251,250,246,.6)}
 .lang-chip.is-on{color:var(--paper);border-color:var(--stamp);background:rgba(158,59,46,.3)}
-.langs .note{margin-top:26px;color:rgba(251,250,246,.6);font-size:.95rem;max-width:56ch}
+.langs .note{margin-top:26px;color:rgba(251,250,246,.72);font-size:.98rem;max-width:56ch}
+
+/* The invitation to anyone the two listed languages do not cover.
+   Set apart from the note so it reads as an offer, not a footnote. */
+.lang-ask{
+  margin-top:22px;
+  padding-left:18px;
+  border-left:2px solid var(--stamp);
+  color:var(--paper);
+  font-size:1rem;
+  max-width:56ch;
+}
 
 /* ============================================================
    Section scaffolding

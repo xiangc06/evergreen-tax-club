@@ -81,24 +81,35 @@ and every page updates.
 
 ---
 
-## Two things to settle before this goes live
+## The language band
 
-### 1. Confirm the languages
+The homepage band lists **English and Chinese** — the two languages the club can
+actually deliver the free program in.
 
-The band on the homepage lists eight languages. **That list is a placeholder.**
-It was chosen to reflect Bellevue's largest language communities and has not
-been checked against what the club actually offers.
+Keep it that way. Listing a language the club cannot serve is worse than
+omitting it: someone sees their language, works up the nerve to contact a
+professional organization, and gets turned away. That is not inclusion, it is
+advertising followed by a rejection. The "speak another language? ask us" line
+beneath the band is what covers everyone else, honestly.
 
-This is a factual claim about the club's services, so replace it with the real
-list — or remove the band — before publishing. Edit two places in `index.html`,
-keeping them in the same order:
+To add a language once a member can genuinely cover it, edit two places in
+`index.html`, keeping them in the same order:
 
 1. the `data-lang-stage` JSON attribute
 2. the `.lang-chip` buttons directly beneath it
 
-A `⚠ VERIFY BEFORE PUBLISHING` comment marks the spot in the file.
+```json
+{"language":"한국어","phrase":"무료 세금 지원","lang":"ko"}
+```
 
-### 2. Supply the photographs
+The `lang` value is the [BCP 47](https://www.w3.org/International/articles/language-tags/)
+code. Screen readers use it to switch pronunciation, so it must be right.
+
+> Non-Latin scripts render through the `--intl` font stack in `styles.css`.
+> Zilla Slab and IBM Plex Mono carry no CJK, Devanagari, or Thai glyphs, so any
+> new script needs a face in that stack that covers it.
+
+## Still to supply — the photographs
 
 Every image is still a labeled placeholder. Each one states the exact size to
 supply, so whoever sources the photography knows what to send:

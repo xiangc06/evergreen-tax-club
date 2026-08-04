@@ -81,8 +81,11 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
   if (reduced.matches) return;
 
+  // Slow enough to read and not flicker. With only two languages
+  // this alternates rather than cycles, so it needs more room than
+  // a longer list would.
   function start() {
-    if (!timer) timer = setInterval(advance, 2600);
+    if (!timer) timer = setInterval(advance, 3800);
   }
   function stop() {
     clearInterval(timer);
