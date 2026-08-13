@@ -4,9 +4,9 @@
    ============================================================ */
 
 /* ---- Reveal on scroll --------------------------------------
-   Elements marked [data-reveal] rise and fade as they enter the
-   viewport. Groups marked [data-reveal-group] do the same, their
-   children arriving one after another.
+   Key headings, copy blocks, images, and elements marked
+   [data-reveal] rise and fade as they enter the viewport. Groups
+   marked [data-reveal-group] arrive one after another.
 
    The hidden starting state lives behind the .anim class, added
    here rather than in the HTML. If this script never runs, or the
@@ -22,16 +22,27 @@
 
   var solo = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
   var groups = Array.prototype.slice.call(document.querySelectorAll('[data-reveal-group]'));
-  var targets = solo.slice();
+  var automatic = Array.prototype.slice.call(document.querySelectorAll(
+    '.hero-grid > div:first-child > *, .section-head > *, .prose > *, .cta-inner > *, .split > .ph-img'
+  )).filter(function (el) {
+    // A parent group already controls its children; avoid animating
+    // the same element twice or giving nested content long delays.
+    return !el.closest('[data-reveal-group]');
+  });
+  var targets = solo.concat(automatic);
 
   groups.forEach(function (group) {
     Array.prototype.forEach.call(group.children, function (child, i) {
-      // 55ms apart, capped so a long ledger never crawls.
-      child.style.transitionDelay = Math.min(i * 55, 440) + 'ms';
+      // 70ms apart, capped so a long ledger never crawls.
+      child.style.transitionDelay = Math.min(i * 70, 420) + 'ms';
       targets.push(child);
     });
   });
 
+  // The same node can be selected by more than one useful rule.
+  targets = targets.filter(function (el, index, all) {
+    return all.indexOf(el) === index;
+  });
   targets.forEach(function (el) { el.classList.add('reveal'); });
 
   var revealed = 0;
@@ -43,7 +54,7 @@
       revealed++;
       io.unobserve(entry.target);   // reveal once; never re-hide
     });
-  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+  }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
 
   targets.forEach(function (el) { io.observe(el); });
 

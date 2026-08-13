@@ -511,16 +511,22 @@ img{max-width:100%;display:block}
    ============================================================ */
 .anim .reveal{
   opacity:0;
-  transform:translateY(12px);
+  transform:translateY(22px);
+  filter:blur(2px);
+  transition:
+    opacity .62s cubic-bezier(.22,1,.36,1),
+    transform .62s cubic-bezier(.22,1,.36,1),
+    filter .48s ease-out;
+  will-change:opacity,transform;
 }
 .anim .reveal.is-in{
   opacity:1;
   transform:none;
-  transition:opacity .38s ease-out, transform .38s ease-out;
+  filter:none;
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
-  .anim .reveal{opacity:1;transform:none}
+  .anim .reveal{opacity:1;transform:none;filter:none;will-change:auto}
 }
