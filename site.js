@@ -87,10 +87,9 @@
   });
 })();
 
-/* ---- Language band ----------------------------------------
-   Cycles "free tax help" through the languages the club serves.
-   Pauses on hover/focus and does nothing at all when the visitor
-   has asked for reduced motion — the first entry stays put.
+/* ---- Page language ----------------------------------------
+   The language chips switch the complete homepage between
+   English and Chinese. The choice is saved for the next visit.
    ---------------------------------------------------------- */
 (function () {
   var stage = document.querySelector('[data-lang-stage]');
@@ -112,7 +111,65 @@
   if (!word || !tongue || !text) return;
 
   var i = 0;
-  var timer = null;
+  var englishTitle = document.title;
+  var chinese = {
+    'Home':'首页','Services':'服务','How it works':'服务流程','About':'关于我们','Contact':'联系我们','Get help':'获取帮助',
+    'Tax filing and financial training · Bellevue, Washington':'报税服务与财务培训 · 华盛顿州贝尔维尤',
+    'English · 中文':'英文 · 中文','Evergreen Financial Training':'Evergreen 财务培训',
+    'Tax help that speaks':'懂你语言的报税服务','your language.':'。',
+    'Work with experienced CPAs and Enrolled Agents for tax filing, return reviews, planning, IRS correspondence, and practical financial education—with free help available for qualifying families.':'由经验丰富的注册会计师和注册税务师提供报税、税表复核、税务规划、IRS 信函协助和实用财务教育；符合条件的家庭可获得免费帮助。',
+    'Get tax help':'获取报税帮助','Explore services':'查看服务','Your privacy comes first.':'我们重视您的隐私。',
+    'Do not send Social Security numbers or tax documents through the public contact form.':'请勿通过公开联系表发送社会安全号码或税务文件。',
+    'Primary service':'主要服务','Tax filing and review':'报税与税表复核','Professionals':'专业人员','CPAs and Enrolled Agents':'注册会计师与注册税务师',
+    'Languages':'服务语言','English and Chinese':'英文与中文','Service area':'服务地区','Bellevue, Washington':'华盛顿州贝尔维尤','Established':'成立年份',
+    'Start with what you need':'从您的需求开始','Choose the right path':'选择适合您的服务',
+    'File my taxes':'我要报税','Ask about preparation and free filing assistance for qualifying families.':'咨询报税服务；符合条件的家庭可申请免费报税帮助。','Request help →':'申请帮助 →',
+    'Review a past return':'复核往年税表','Have a credentialed professional look for missed items or unresolved problems.':'由持证专业人员检查遗漏项目或尚未解决的问题。','Request a review →':'申请复核 →',
+    'Resolve a tax issue':'解决税务问题','Get guidance with planning, compliance questions, IRS notices, or an audit.':'获取税务规划、合规问题、IRS 通知或审计方面的指导。','Describe the issue →':'说明问题 →',
+    'Training or membership':'培训或会员','Ask about practical education or joining the professional community.':'咨询实用财务教育或加入专业社群。','Start a conversation →':'开始咨询 →',
+    'Multilingual tax assistance':'多语言报税协助',
+    'Tax filing should not depend on how comfortably you read English. Assistance is available in English and Chinese, with continuity from the first conversation through review.':'报税不应受英文阅读能力限制。我们提供中英文协助，从首次沟通到最终复核都有专业人员持续跟进。',
+    'Prefer another language? Ask us. We will tell you clearly whether a qualified professional is available.':'需要其他语言？请联系我们，我们会明确告知是否有合格的专业人员可以协助。',
+    'Professional help for the moments that matter':'在关键时刻提供专业帮助',
+    'Start with a short, non-sensitive inquiry. We confirm eligibility, cost, timing, and the secure next step before requesting documents.':'请先提交简短且不含敏感信息的咨询。索取文件前，我们会确认资格、费用、时间安排及安全的下一步流程。',
+    'Tax return preparation':'税表准备与申报','Organized support for filing an accurate return, with free assistance available for qualifying low-income families.':'协助准确整理和申报税表；符合条件的低收入家庭可获得免费服务。',
+    'Prior-return review':'往年税表复核','A credentialed second look at a previously filed return for omissions, compliance concerns, and possible corrections.':'由持证专业人员复核已申报税表，检查遗漏、合规风险和可能需要更正的项目。',
+    'Planning and compliance':'税务规划与合规','Practical guidance before filing season and support when a tax question becomes more complicated.':'在报税季前提供实用规划，并在税务问题复杂时提供支持。',
+    'IRS notices and audits':'IRS 通知与审计','Help understanding correspondence, organizing a response, and identifying the appropriate next action.':'协助理解信函内容、整理回复材料并确定合适的下一步行动。',
+    'Financial and tax education':'财务与税务教育','Plain-language training that helps families and professionals understand documents, deadlines, and filing decisions.':'以清晰易懂的方式帮助家庭和专业人士理解文件、截止日期和申报决定。',
+    'A careful path from first question to finished return':'从首次咨询到完成申报的严谨流程',
+    'Tell us what you need':'告诉我们您的需求','Send a basic inquiry without sensitive tax information.':'提交不含敏感税务信息的基本咨询。',
+    'Confirm fit and eligibility':'确认服务与资格','We clarify the service, language, timing, cost, and who will help.':'我们会确认服务内容、语言、时间、费用及负责人员。',
+    'Share documents securely':'安全提交文件','If we proceed, you receive instructions for the approved secure exchange method.':'确认继续后，您会收到经批准的安全文件传输说明。',
+    'Prepare and review':'准备并复核','A tax professional prepares or reviews the work and explains anything needing attention.':'税务专业人员准备或复核材料，并说明需要关注的问题。',
+    'Approve the next step':'确认下一步','You review the result before filing, amendment, or any response is completed.':'在申报、更正或提交回复前，您会先审阅并确认结果。',
+    'Not sure your last return was right?':'不确定上一份税表是否正确？','A rushed or self-prepared return can contain missed items or unresolved questions. A second review can give you clarity before a small problem grows.':'匆忙准备或自行申报的税表可能存在遗漏或未解决的问题。再次复核可以在小问题扩大前帮助您确认情况。',
+    'Tell us which tax year concerns you. We will explain whether a review is appropriate and what happens next.':'请告诉我们您担心的报税年度。我们会说明是否适合复核以及接下来的流程。','Request a review':'申请复核',
+    'About Evergreen':'关于 Evergreen','Tax professionals who teach as well as prepare':'不仅代办，也帮助您理解税务',
+    'Evergreen Financial Training brings CPAs and Enrolled Agents together around practical tax help and financial education.':'Evergreen 财务培训汇集注册会计师和注册税务师，提供实用税务协助和财务教育。',
+    'The goal is not only to complete paperwork, but to help people understand what is being filed and why.':'我们的目标不仅是完成表格，更要帮助每个人理解申报了什么以及为什么这样申报。',
+    'Ready to begin?':'准备开始了吗？','Start with a safe, simple inquiry.':'从安全、简单的咨询开始。','Do not include Social Security numbers or attach tax documents.':'请勿填写社会安全号码或附加税务文件。','Contact Evergreen':'联系 Evergreen'
+  };
+
+  function translatePage(lang) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    var node;
+    while ((node = walker.nextNode())) {
+      var trimmed = node.nodeValue.trim();
+      if (!trimmed) continue;
+      if (node._eftEnglish === undefined) node._eftEnglish = node.nodeValue;
+      if (lang === 'zh' && chinese[trimmed]) {
+        var lead = node.nodeValue.match(/^\s*/)[0];
+        var tail = node.nodeValue.match(/\s*$/)[0];
+        node.nodeValue = lead + chinese[trimmed] + tail;
+      } else if (lang === 'en') {
+        node.nodeValue = node._eftEnglish;
+      }
+    }
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'Evergreen 财务培训 — 懂你语言的报税服务' : englishTitle;
+    try { localStorage.setItem('eft-language', lang); } catch (err) {}
+  }
 
   function paint(index) {
     var item = phrases[index];
@@ -126,51 +183,23 @@
 
     chips.forEach(function (chip, n) {
       chip.classList.toggle('is-on', n === index);
+      chip.setAttribute('aria-pressed', n === index ? 'true' : 'false');
     });
   }
 
-  function advance() {
-    i = (i + 1) % phrases.length;
-    paint(i);
-  }
-
-  paint(0);
-
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)');
-  if (reduced.matches) return;
-
-  // Slow enough to read and not flicker. With only two languages
-  // this alternates rather than cycles, so it needs more room than
-  // a longer list would.
-  function start() {
-    if (!timer) timer = setInterval(advance, 3800);
-  }
-  function stop() {
-    clearInterval(timer);
-    timer = null;
-  }
-
-  start();
-
-  var band = stage.closest('.langs') || stage;
-  band.addEventListener('mouseenter', stop);
-  band.addEventListener('mouseleave', start);
-  band.addEventListener('focusin', stop);
-  band.addEventListener('focusout', start);
-
-  // Stop cycling while the tab is in the background.
-  document.addEventListener('visibilitychange', function () {
-    if (document.hidden) stop();
-    else start();
-  });
-
-  // Let a visitor jump straight to a language.
   chips.forEach(function (chip, n) {
     chip.addEventListener('click', function () {
       i = n;
+      translatePage(n === 1 ? 'zh' : 'en');
       paint(i);
     });
   });
+
+  var saved = 'en';
+  try { saved = localStorage.getItem('eft-language') || 'en'; } catch (err) {}
+  i = saved === 'zh' ? 1 : 0;
+  translatePage(saved === 'zh' ? 'zh' : 'en');
+  paint(i);
 })();
 
 /* ---- Contact form ------------------------------------------
