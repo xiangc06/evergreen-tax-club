@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact — Evergreen Tax Club</title>
-<meta name="description" content="Contact Evergreen Tax Club about free tax help, a return review, or membership. A nonprofit 501(c)(3) association of tax professionals in Bellevue, WA.">
+<title>Contact — Evergreen Financial Training</title>
+<meta name="description" content="Contact Evergreen Financial Training about tax filing, a prior-return review, IRS correspondence, financial education, or professional membership in Bellevue, Washington.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -19,7 +19,7 @@
     <a class="brand" href="index.html">
       <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 122"
      fill="none" stroke="currentColor" role="img"
-     aria-label="Evergreen Tax Club shield">
+     aria-label="Evergreen Financial Training shield">
   <defs><clipPath id="etc-sh-5"><path d="M10,6 H90 V57 C90,85 72,104 50,116 C28,104 10,85 10,57 Z"/></clipPath></defs>
   <g clip-path="url(#etc-sh-5)">
     <path d="M4,90 C16,81 30,77 45,80 C58,82 70,88 80,85 C88,83 94,79 98,75 L98,124 L4,124 Z" fill="currentColor" stroke="none"/>
@@ -97,12 +97,14 @@
   </g>
   <path d="M10,6 H90 V57 C90,85 72,104 50,116 C28,104 10,85 10,57 Z" stroke-width="5" stroke-linejoin="round"/>
 </svg>
-      <span class="brand-name">Evergreen Tax Club</span>
+      <span class="brand-name">Evergreen Financial Training</span>
     </a>
     <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav class="site-nav" id="site-nav" aria-label="Main">
       <ul>
         <li><a href="index.html">Home</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="index.html#process">How it works</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" aria-current="page">Contact</a></li>
         <li><a class="nav-cta" href="#help">Get help</a></li>
@@ -117,14 +119,14 @@
     <div class="wrap">
       <div class="doc-rule">
         <span class="mono">Contact</span>
-        <span class="mono">Replies come from a club member</span>
+        <span class="mono">Replies come from a tax professional</span>
       </div>
       <div class="hero-grid">
         <div>
           <h1>Tell us what you need <span class="accent">help with.</span></h1>
-          <p class="lede">Whether you are a family that needs someone to look at a return, or a tax professional asking about membership, the same address reaches us.</p>
+          <p class="lede">Whether you need help filing, want a second look at a return, received an IRS notice, or are asking about training, start here without sharing sensitive tax information.</p>
         </div>
-        <div class="fields">
+        <div class="fields" data-reveal-group>
           <div class="field">
             <span class="field-no">4a</span>
             <span>
@@ -142,7 +144,7 @@
           <div class="field">
             <span class="field-no">4c</span>
             <span>
-              <span class="field-label">Organization</span>
+              <span class="field-label">Legal status</span>
               <span class="field-value">Nonprofit 501(c)(3)</span>
             </span>
           </div>
@@ -156,24 +158,29 @@
     <div class="wrap">
       <div class="section-head">
         <span class="mono">Where to start</span>
-        <h2>Three reasons people write to us</h2>
+        <h2>Choose the reason that fits best</h2>
       </div>
 
-      <div class="ledger">
+      <div class="ledger" data-reveal-group>
         <div class="ledger-row" id="help">
           <span class="ledger-no">01</span>
           <h3>Free tax help</h3>
-          <p>For low-income families. Say which language you would prefer to work in and we will match you with a member who speaks it. There is no charge for this program.</p>
+          <p>For qualifying low-income families. Tell us your preferred language and the kind of return you need help filing. There is no charge for this program.</p>
         </div>
         <div class="ledger-row" id="review">
           <span class="ledger-no">02</span>
           <h3>A return review</h3>
-          <p>Send us the tax years you would like a second look at. Members have prior returns reviewed at no cost — if we find nothing to recover, there is nothing to pay.</p>
+          <p>Tell us the tax year you want reviewed and what concerns you. Do not send the return or any sensitive identifying information yet.</p>
         </div>
         <div class="ledger-row" id="join">
           <span class="ledger-no">03</span>
-          <h3>Joining the club</h3>
-          <p>For CPAs and Enrolled Agents. Our Admissions chairperson will explain eligibility and what membership involves. Mention your credential and where you practise.</p>
+          <h3>IRS notice or planning</h3>
+          <p>Summarize the type of notice or planning question without including account numbers, Social Security numbers, or attachments.</p>
+        </div>
+        <div class="ledger-row" id="training">
+          <span class="ledger-no">04</span>
+          <h3>Training or membership</h3>
+          <p>For people seeking financial education and CPAs or Enrolled Agents interested in the professional community.</p>
         </div>
       </div>
     </div>
@@ -189,13 +196,14 @@
        at its action URL, and delete the data-mailto-form
        attribute along with the handler in site.js.
        ========================================= -->
-  <section class="section" style="padding-top:0">
-    <div class="wrap split split-narrow">
+  <section class="section" id="message" style="padding-top:0">
+    <div class="wrap split split-narrow" data-reveal-group>
       <div>
         <span class="mono">Send a message</span>
-        <h2 style="margin-top:14px;font-size:clamp(1.7rem,3.2vw,2.2rem);letter-spacing:-.02em">Write to the club</h2>
+        <h2 style="margin-top:14px;font-size:clamp(1.7rem,3.2vw,2.2rem);letter-spacing:-.02em">Write to Evergreen</h2>
         <div class="prose" style="margin-top:18px">
           <p>Fill this in and your email app will open with the message ready to send. Nothing is stored on this website.</p>
+          <p class="privacy-callout"><strong>Keep sensitive information out of this form.</strong> Never include Social Security numbers, bank details, tax account numbers, or document attachments. We will explain the approved secure next step after reviewing your inquiry.</p>
           <p>Prefer to write directly? Use <a href="mailto:EvergreenTaxClub@gmail.com" style="color:var(--stamp);text-decoration:underline;text-underline-offset:3px">EvergreenTaxClub@gmail.com</a>.</p>
         </div>
       </div>
@@ -203,24 +211,33 @@
       <form class="panel" data-mailto-form="EvergreenTaxClub@gmail.com" novalidate>
         <div class="form-field">
           <label class="field-label" for="f-name">Your name</label>
-          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full name">
+          <input id="f-name" name="name" type="text" autocomplete="name" placeholder="Full name" required>
         </div>
         <div class="form-field">
           <label class="field-label" for="f-email">Your email</label>
-          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+          <input id="f-email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
         </div>
         <div class="form-field">
           <label class="field-label" for="f-topic">What is this about?</label>
           <select id="f-topic" name="topic">
             <option value="Free tax help">Free tax help</option>
             <option value="A return review">A return review</option>
-            <option value="Joining the club">Joining the club</option>
+            <option value="IRS notice or planning">IRS notice or planning</option>
+            <option value="Training or membership">Training or membership</option>
             <option value="Something else">Something else</option>
           </select>
         </div>
         <div class="form-field">
+          <label class="field-label" for="f-language">Preferred language</label>
+          <select id="f-language" name="language">
+            <option value="English">English</option>
+            <option value="Chinese">中文 / Chinese</option>
+            <option value="Another language">Another language</option>
+          </select>
+        </div>
+        <div class="form-field">
           <label class="field-label" for="f-message">Message</label>
-          <textarea id="f-message" name="message" rows="5" placeholder="Tell us what you need. If you would prefer another language, say which one."></textarea>
+          <textarea id="f-message" name="message" rows="5" placeholder="Briefly tell us what you need. Do not include tax identification numbers or attach documents." required></textarea>
         </div>
         <button class="btn btn-primary" type="submit">Compose email</button>
         <p class="form-note" data-form-status role="status">This opens your email app with everything you typed already filled in.</p>
@@ -236,7 +253,7 @@
       <a class="brand" href="index.html">
         <svg class="brand-logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 122"
      fill="none" stroke="currentColor" role="img"
-     aria-label="Evergreen Tax Club shield">
+     aria-label="Evergreen Financial Training shield">
   <defs><clipPath id="etc-sh-6"><path d="M10,6 H90 V57 C90,85 72,104 50,116 C28,104 10,85 10,57 Z"/></clipPath></defs>
   <g clip-path="url(#etc-sh-6)">
     <path d="M4,90 C16,81 30,77 45,80 C58,82 70,88 80,85 C88,83 94,79 98,75 L98,124 L4,124 Z" fill="currentColor" stroke="none"/>
@@ -314,17 +331,19 @@
   </g>
   <path d="M10,6 H90 V57 C90,85 72,104 50,116 C28,104 10,85 10,57 Z" stroke-width="5" stroke-linejoin="round"/>
 </svg>
-        <span class="brand-name">Evergreen Tax Club</span>
+        <span class="brand-name">Evergreen Financial Training</span>
       </a>
       <div class="foot-links">
         <a href="index.html">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#process">How it works</a>
         <a href="about.html">About</a>
         <a href="contact.html">Contact</a>
         <a href="mailto:EvergreenTaxClub@gmail.com">EvergreenTaxClub@gmail.com</a>
       </div>
     </div>
     <div class="foot-bottom">
-      <span>© 2026 Evergreen Tax Club · Bellevue, WA</span>
+      <span>© 2026 Evergreen Financial Training · Bellevue, WA</span>
       <span>Nonprofit 501(c)(3)</span>
     </div>
   </div>

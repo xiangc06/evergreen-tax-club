@@ -1,5 +1,5 @@
 /* ============================================================
-   Evergreen Tax Club — shared stylesheet
+   Evergreen Financial Training — shared stylesheet
    Design direction: "Greenbar" — accounting ledger paper.
 
    Every page links this one file. Do not copy these rules into
@@ -178,6 +178,9 @@ img{max-width:100%;display:block}
 .hero h1{font-size:clamp(2.7rem,5.6vw,4.15rem);letter-spacing:-.025em;font-weight:600}
 .hero h1 .accent{color:var(--stamp)}
 .hero .lede{margin-top:24px}
+.hero-kicker{margin-bottom:14px}
+.privacy-line{margin-top:22px;max-width:58ch;padding:12px 14px;border-left:3px solid var(--stamp);background:var(--bar-soft);font-size:.88rem;line-height:1.55;color:var(--slate)}
+.privacy-line strong{color:var(--ink)}
 
 /* Field block — label over value, hairline separated */
 .fields{border-top:1px solid var(--ink)}
@@ -257,6 +260,18 @@ img{max-width:100%;display:block}
 .section-head{max-width:62ch;margin-bottom:44px}
 .section-head h2{font-size:clamp(1.9rem,3.6vw,2.65rem);letter-spacing:-.02em;margin-top:14px}
 .section-head p{margin-top:16px;font-size:1.1rem;color:var(--slate)}
+.compact-head{margin-bottom:30px}
+
+/* Visitor routes ---------------------------------------- */
+.intent-section{padding:0 0 84px}
+.intent-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--rule);background:var(--rule);gap:1px}
+.intent-card{display:flex;flex-direction:column;min-height:280px;padding:26px 24px;background:var(--paper);transition:background .2s ease,transform .2s ease}
+.intent-card:hover{background:var(--bar-soft);transform:translateY(-3px)}
+.intent-card:focus-visible{position:relative;z-index:1}
+.intent-no{font-family:var(--mono);font-size:.72rem;color:var(--stamp);margin-bottom:32px}
+.intent-card h3{font-size:1.3rem;margin-bottom:12px}
+.intent-card p{font-size:.94rem;color:var(--slate)}
+.text-link{font-size:.9rem;font-weight:600;color:var(--stamp);margin-top:auto;padding-top:24px}
 
 /* ============================================================
    Ledger — greenbar striped rows. The one place stripes appear.
@@ -275,6 +290,16 @@ img{max-width:100%;display:block}
 .ledger-no{font-family:var(--mono);font-size:.8rem;color:var(--slate)}
 .ledger-row h3{font-size:1.22rem;letter-spacing:-.01em}
 .ledger-row p{color:var(--ink-2);font-size:1rem}
+
+/* Filing process ---------------------------------------- */
+.process-section{padding:84px 0;background:var(--bar-soft);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.process{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);position:relative}
+.process::before{content:"";position:absolute;top:20px;left:10%;right:10%;height:1px;background:var(--rule)}
+.process li{position:relative;padding:0 16px;text-align:center}
+.process-marker{position:relative;z-index:1;display:grid;place-items:center;width:42px;height:42px;margin:0 auto 20px;border:1px solid var(--ink);border-radius:50%;background:var(--paper);font-family:var(--mono);font-size:.78rem;color:var(--ink);transition:background .25s,color .25s,transform .25s}
+.process li:hover .process-marker{background:var(--stamp);border-color:var(--stamp);color:var(--paper);transform:scale(1.06)}
+.process h3{font-size:1.08rem;margin-bottom:8px}
+.process p{font-size:.86rem;line-height:1.55;color:var(--slate)}
 
 /* ============================================================
    Panels
@@ -395,6 +420,16 @@ img{max-width:100%;display:block}
   outline:none;border-color:var(--stamp);box-shadow:0 0 0 3px rgba(158,59,46,.12);
 }
 .form-note{font-size:.88rem;color:var(--slate);margin-top:14px;line-height:1.55}
+.privacy-callout{padding:16px;border:1px solid var(--rule);background:var(--bar-soft);font-size:.9rem;line-height:1.55;color:var(--slate)}
+.privacy-callout strong{color:var(--ink)}
+
+/* Closing action ---------------------------------------- */
+.cta-band{background:var(--ink);color:var(--paper);padding:54px 0}
+.cta-inner{display:flex;align-items:center;justify-content:space-between;gap:40px}
+.cta-band .mono{color:rgba(251,250,246,.58)}
+.cta-band h2{color:var(--paper);font-size:clamp(1.7rem,3vw,2.3rem);margin-top:8px}
+.cta-band p{color:rgba(251,250,246,.66);margin-top:8px;font-size:.94rem}
+.cta-band .btn{flex:none}
 
 /* ============================================================
    Footer
@@ -420,6 +455,11 @@ img{max-width:100%;display:block}
 @media (max-width:960px){
   .hero-grid,.split,.split-wide,.split-narrow{grid-template-columns:1fr;gap:44px}
   .people{grid-template-columns:1fr}
+  .intent-grid{grid-template-columns:repeat(2,1fr)}
+  .process{grid-template-columns:1fr;gap:0}
+  .process::before{top:20px;bottom:20px;left:20px;right:auto;width:1px;height:auto}
+  .process li{display:grid;grid-template-columns:42px 1fr;gap:20px;text-align:left;padding:0 0 30px}
+  .process-marker{margin:0}
   .ledger-row{grid-template-columns:40px 1fr;gap:8px 18px}
   .ledger-row p{grid-column:2}
 }
@@ -444,9 +484,43 @@ img{max-width:100%;display:block}
   .site-nav a{padding:13px 12px;font-size:1rem}
   .nav-cta{margin-left:0;margin-top:8px;text-align:center}
   .contact-row{grid-template-columns:1fr;gap:4px}
+  .cta-inner{align-items:flex-start;flex-direction:column}
+}
+
+@media (max-width:560px){
+  .brand-name{font-size:1rem;max-width:190px;line-height:1.08}
+  .intent-grid{grid-template-columns:1fr}
+  .intent-card{min-height:0}
+  .ledger-row{padding-left:8px;padding-right:8px}
+  .panel{padding:24px 20px}
+  .btn-row .btn{width:100%;text-align:center}
+}
+
+/* ============================================================
+   Motion
+
+   Content settles onto the page the way ink lands on paper:
+   a short rise and fade, rows arriving in sequence. Nothing
+   slides, bounces, or travels far.
+
+   The hidden starting state is applied ONLY under .anim, which
+   site.js adds to <html> and only when the visitor has not asked
+   for reduced motion. Without JavaScript, or with reduced motion
+   on, every rule below is inert and the page renders fully — no
+   content is ever invisible by default.
+   ============================================================ */
+.anim .reveal{
+  opacity:0;
+  transform:translateY(12px);
+}
+.anim .reveal.is-in{
+  opacity:1;
+  transform:none;
+  transition:opacity .38s ease-out, transform .38s ease-out;
 }
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  .anim .reveal{opacity:1;transform:none}
 }

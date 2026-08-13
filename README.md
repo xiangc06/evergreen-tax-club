@@ -1,7 +1,7 @@
-# Evergreen Tax Club — Website
+# Evergreen Financial Training — Website
 
-The public website for Evergreen Tax Club, a nonprofit 501(c)(3) association of
-CPAs and Enrolled Agents based in Bellevue, WA.
+The public website for Evergreen Financial Training, a Bellevue organization
+focused primarily on multilingual tax filing, review, planning, and education.
 
 **Live site:** https://xiangc06.github.io/evergreen-tax-club/
 
@@ -15,7 +15,7 @@ editor and the change is live within a minute of pushing.
 
 | File | Purpose |
 |------|---------|
-| `index.html` | Home — hero, language band, services, member benefit, about preview |
+| `index.html` | Home — visitor routes, language band, services, filing process, review offer |
 | `about.html` | About — mission, the work, leadership, membership |
 | `contact.html` | Contact — details, the three enquiry routes, message form |
 | `styles.css` | **All styling for every page.** Change it here, once. |

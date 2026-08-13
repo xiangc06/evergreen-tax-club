@@ -3,6 +3,64 @@
    Linked from every page. Plain JS, no dependencies.
    ============================================================ */
 
+/* ---- Reveal on scroll --------------------------------------
+   Elements marked [data-reveal] rise and fade as they enter the
+   viewport. Groups marked [data-reveal-group] do the same, their
+   children arriving one after another.
+
+   The hidden starting state lives behind the .anim class, added
+   here rather than in the HTML. If this script never runs, or the
+   visitor has asked for reduced motion, nothing is hidden and the
+   page renders complete — which also keeps the content visible to
+   crawlers.
+   ---------------------------------------------------------- */
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) return;
+
+  document.documentElement.classList.add('anim');
+
+  var solo = Array.prototype.slice.call(document.querySelectorAll('[data-reveal]'));
+  var groups = Array.prototype.slice.call(document.querySelectorAll('[data-reveal-group]'));
+  var targets = solo.slice();
+
+  groups.forEach(function (group) {
+    Array.prototype.forEach.call(group.children, function (child, i) {
+      // 55ms apart, capped so a long ledger never crawls.
+      child.style.transitionDelay = Math.min(i * 55, 440) + 'ms';
+      targets.push(child);
+    });
+  });
+
+  targets.forEach(function (el) { el.classList.add('reveal'); });
+
+  var revealed = 0;
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-in');
+      revealed++;
+      io.unobserve(entry.target);   // reveal once; never re-hide
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  targets.forEach(function (el) { io.observe(el); });
+
+  // Backstop. Hidden content that never reveals is far worse than
+  // content that simply appears, so if nothing at all has been
+  // revealed shortly after load — meaning the observer is not
+  // working in this browser — drop the effect and show everything.
+  setTimeout(function () {
+    if (revealed > 0) return;
+    io.disconnect();
+    targets.forEach(function (el) {
+      el.style.transitionDelay = '0ms';
+      el.classList.add('is-in');
+    });
+  }, 1600);
+})();
+
 /* ---- Mobile navigation ------------------------------------
    Present on every page. (The previous site had this on the
    homepage only, which left About and Contact with no nav
@@ -131,14 +189,39 @@
 
   var to = form.getAttribute('data-mailto-form');
   var status = form.querySelector('[data-form-status]');
+  var topicField = form.elements.topic;
+  var topicFromUrl = new URLSearchParams(window.location.search).get('topic');
+
+  if (topicField && topicFromUrl) {
+    Array.prototype.some.call(topicField.options, function (option) {
+      if (option.value !== topicFromUrl) return false;
+      topicField.value = topicFromUrl;
+      return true;
+    });
+  }
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
 
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      if (status) status.textContent = 'Complete the required fields before continuing.';
+      return;
+    }
+
     var name = (form.elements.name.value || '').trim();
     var email = (form.elements.email.value || '').trim();
     var topic = (form.elements.topic.value || '').trim();
+    var language = (form.elements.language.value || '').trim();
     var message = (form.elements.message.value || '').trim();
+
+    // Catch common nine-digit identifiers before they enter an email draft.
+    // This is a warning, not a guarantee; the form never accepts attachments.
+    if (/\b\d{3}[- ]?\d{2}[- ]?\d{4}\b/.test(message)) {
+      if (status) status.textContent = 'Remove any Social Security or tax identification number before continuing.';
+      form.elements.message.focus();
+      return;
+    }
 
     var subject = topic ? topic + ' — ' + (name || 'Website enquiry') : 'Website enquiry';
 
@@ -146,6 +229,7 @@
       'Name: ' + (name || '(not given)') + '\n' +
       'Email: ' + (email || '(not given)') + '\n' +
       'Topic: ' + (topic || '(not given)') + '\n\n' +
+      'Preferred language: ' + (language || '(not given)') + '\n\n' +
       message;
 
     if (status) {
