@@ -124,7 +124,7 @@
   var i = 0;
   var englishTitle = document.title;
   var chinese = {
-    'Home':'首页','Services':'服务','How it works':'服务流程','About':'关于我们','Contact':'联系我们','Get help':'获取帮助',
+    'Home':'首页','Services':'服务','How it works':'服务流程','About':'关于我们','Contact':'联系我们','Launch OpenTax demo':'启动 OpenTax 演示','Get help':'获取帮助',
     'Tax filing and financial training · Bellevue, Washington':'报税服务与财务培训 · 华盛顿州贝尔维尤',
     'English · 中文':'英文 · 中文','Evergreen Financial Training':'Evergreen 财务培训',
     'Tax help that speaks':'懂你语言的报税服务','your language.':'。',
