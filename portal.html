@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Preparer Portal — Evergreen Financial Training</title>
+<meta name="description" content="Open the approved local OpenTax preparer portal for document review and TaxAct automation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+<meta name="theme-color" content="#12241A">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-head">
+  <div class="wrap head-inner">
+    <a class="brand" href="index.html">
+      <img class="brand-logo" src="images/favicon.svg" alt="">
+      <span class="brand-name">Evergreen Financial Training</span>
+    </a>
+    <a class="btn btn-secondary" href="index.html">Return to website</a>
+  </div>
+</header>
+
+<main>
+  <section class="hero portal-hero">
+    <div class="wrap">
+      <div class="doc-rule"><span class="mono">Authorized preparers only</span><span class="mono">Local Windows companion</span></div>
+      <div class="hero-grid">
+        <div>
+          <p class="hero-kicker mono">OpenTax Preparer Portal</p>
+          <h1>Review locally. Fill TaxAct <span class="accent">with approval.</span></h1>
+          <p class="lede">The preparer portal runs on an approved Windows computer alongside TaxAct. Sign-in, document review, preview, live filling, and read-back verification happen in that trusted local workspace.</p>
+          <div class="btn-row">
+            <a class="btn btn-primary" href="http://127.0.0.1:8765/">Open local portal</a>
+            <a class="btn btn-secondary" href="mailto:EvergreenTaxClub@gmail.com?subject=OpenTax%20portal%20setup">Request setup help</a>
+          </div>
+          <p class="privacy-line"><strong>The OpenTax companion must already be running.</strong> If the local portal does not open, start it on the approved Windows computer. Never forward port 8765 or expose it to the internet.</p>
+        </div>
+        <div class="fields" data-reveal-group>
+          <div class="field"><span class="field-no">P1</span><span><span class="field-label">Access</span><span class="field-value">Password-protected local session</span></span></div>
+          <div class="field"><span class="field-no">P2</span><span><span class="field-label">Documents</span><span class="field-value">Processed in the approved workspace</span></span></div>
+          <div class="field"><span class="field-no">P3</span><span><span class="field-label">Live fill</span><span class="field-value">Explicit preparer confirmation</span></span></div>
+          <div class="field"><span class="field-no">P4</span><span><span class="field-label">Verification</span><span class="field-value">TaxAct read-back report</span></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head"><span class="mono">Before opening the portal</span><h2>Confirm the workstation is ready</h2></div>
+      <div class="ledger" data-reveal-group>
+        <div class="ledger-row"><span class="ledger-no">01</span><h3>Use the approved Windows computer</h3><p>TaxAct and the OpenTax companion must run in the same signed-in Windows session.</p></div>
+        <div class="ledger-row"><span class="ledger-no">02</span><h3>Open the correct TaxAct return</h3><p>Live filling remains blocked on Client Manager, modal dialogs, and other unsafe screens.</p></div>
+        <div class="ledger-row"><span class="ledger-no">03</span><h3>Preview before live fill</h3><p>Resolve missing fields and mapping warnings, then inspect the dry-run report.</p></div>
+        <div class="ledger-row"><span class="ledger-no">04</span><h3>Confirm and verify</h3><p>Approve live filling only for the intended return and review every read-back result.</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-foot"><div class="wrap"><div class="foot-bottom"><span>© 2026 Evergreen Financial Training · Bellevue, WA</span><span>Authorized preparer workspace</span></div></div></footer>
+<script src="site.js"></script>
+</body>
+</html>
