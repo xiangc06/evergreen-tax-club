@@ -123,10 +123,13 @@
 
   var i = 0;
   var englishTitle = document.title;
+  // The organization name stays in English in both languages, so it is
+  // deliberately absent from this map and left untranslated wherever it
+  // appears as a proper noun.
   var chinese = {
     'Home':'首页','Services':'服务','How it works':'服务流程','About':'关于我们','Contact':'联系我们','Launch OpenTax demo':'启动 OpenTax 演示','Get help':'获取帮助',
     'Tax filing and financial training · Bellevue, Washington':'报税服务与财务培训 · 华盛顿州贝尔维尤',
-    'English · 中文':'英文 · 中文','Evergreen Financial Training':'Evergreen 财务培训',
+    'English · 中文':'英文 · 中文',
     'Tax help that speaks':'懂你语言的报税服务','your language.':'。',
     'Work with experienced CPAs and Enrolled Agents for tax filing, return reviews, planning, IRS correspondence, and practical financial education—with free help available for qualifying families.':'由经验丰富的注册会计师和注册税务师提供报税、税表复核、税务规划、IRS 信函协助和实用财务教育；符合条件的家庭可获得免费帮助。',
     'Get tax help':'获取报税帮助','Explore services':'查看服务','Your privacy comes first.':'我们重视您的隐私。',
@@ -157,7 +160,7 @@
     'Not sure your last return was right?':'不确定上一份税表是否正确？','A rushed or self-prepared return can contain missed items or unresolved questions. A second review can give you clarity before a small problem grows.':'匆忙准备或自行申报的税表可能存在遗漏或未解决的问题。再次复核可以在小问题扩大前帮助您确认情况。',
     'Tell us which tax year concerns you. We will explain whether a review is appropriate and what happens next.':'请告诉我们您担心的报税年度。我们会说明是否适合复核以及接下来的流程。','Request a review':'申请复核',
     'About Evergreen':'关于 Evergreen','Tax professionals who teach as well as prepare':'不仅代办，也帮助您理解税务',
-    'Evergreen Financial Training brings CPAs and Enrolled Agents together around practical tax help and financial education.':'Evergreen 财务培训汇集注册会计师和注册税务师，提供实用税务协助和财务教育。',
+    'Evergreen Financial Training brings CPAs and Enrolled Agents together around practical tax help and financial education.':'Evergreen Financial Training 汇集注册会计师和注册税务师，提供实用税务协助和财务教育。',
     'The goal is not only to complete paperwork, but to help people understand what is being filed and why.':'我们的目标不仅是完成表格，更要帮助每个人理解申报了什么以及为什么这样申报。',
     'Ready to begin?':'准备开始了吗？','Start with a safe, simple inquiry.':'从安全、简单的咨询开始。','Do not include Social Security numbers or attach tax documents.':'请勿填写社会安全号码或附加税务文件。','Contact Evergreen':'联系 Evergreen'
   };
@@ -178,7 +181,7 @@
       }
     }
     document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
-    document.title = lang === 'zh' ? 'Evergreen 财务培训 — 懂你语言的报税服务' : englishTitle;
+    document.title = lang === 'zh' ? 'Evergreen Financial Training — 懂你语言的报税服务' : englishTitle;
     try { localStorage.setItem('eft-language', lang); } catch (err) {}
   }
 
